@@ -211,7 +211,8 @@ Home
 
 .home-container {
   position: relative;
-  width: 98vw;
+  width: 100vw;
+  min-height: 100vh;
   overflow-x: hidden;
 }
 
