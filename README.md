@@ -1,3 +1,14 @@
+# About 
+A webiste that shows information about all players and games of current season of NBA 
+
+Screen Shots: 
+![image](https://user-images.githubusercontent.com/69196018/166850836-ce7a014f-4c64-4438-90b4-730391ba05b4.png)
+![image](https://user-images.githubusercontent.com/69196018/166850924-3de092db-7491-4f79-b99f-6d0be258da09.png)
+![image](https://user-images.githubusercontent.com/69196018/166850947-9ca51c7b-436b-4882-ac52-c68973f3f41b.png)
+![image](https://user-images.githubusercontent.com/69196018/166850960-acaec66f-4de8-4b87-8011-bede14573800.png)
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
