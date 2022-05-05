@@ -8,7 +8,8 @@ Screen Shots:
 ![image](https://user-images.githubusercontent.com/69196018/166850960-acaec66f-4de8-4b87-8011-bede14573800.png)
 ![image](https://user-images.githubusercontent.com/69196018/166851082-fd961a4e-ba89-46e3-9c2e-9dfd00865a11.png)
 
-
+Link: 
+https://currentnba.netlify.app/
 
 # Getting Started with Create React App
 
