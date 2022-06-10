@@ -34,10 +34,11 @@ const AppProvider = ({ children }) => {
 
 
     // Home Page
-    date.setDate(date.getDate() - 1)
+    date.setDate(date.getDate() - 5)
     const strDateStart = date.toISOString().split('T')[0]
-    date.setDate(date.getDate() + 1)
+    date.setDate(date.getDate() + 5)
     const strDateEnd = date.toISOString().split('T')[0]
+
 
     const fetchTodaysGame = useCallback(async () => {
         setTodaysGameLoading(true)
@@ -111,14 +112,23 @@ const AppProvider = ({ children }) => {
     }, [])
 
     //game page 
+    const fetchTotalGamePages = async () => {
+        const response = await fetch(`${gameUrl}?seasons[]=${date.getFullYear() - 1}`)
+        const { meta } = await response.json()
+        const { total_pages } = meta
+
+        setCurrentGamesPage(total_pages)
+    }
+
     const fetchGame = useCallback(async () => {
         setGameLoading(true)
         try {
-            const response = await fetch(`${gameUrl}?seasons[]=${date.getFullYear() - 1}&page=${currentGamesPage}`)
-            const { data, meta } = await response.json()
+
+            const nextPageResponse = await fetch(`${gameUrl}?seasons[]=${date.getFullYear() - 1}&page=${currentGamesPage}`)
+            const { data, meta } = await nextPageResponse.json()
             const { total_pages } = meta
 
-            if (currentGamesPage !== 1) {
+            if (currentGamesPage !== total_pages) {
                 setGames(prevGames => prevGames.concat(data))
 
             } else {
@@ -131,6 +141,10 @@ const AppProvider = ({ children }) => {
 
         setGameLoading(false)
     }, [currentGamesPage])
+
+    useEffect(() => {
+        fetchTotalGamePages();
+    }, [])
 
     useEffect(() => {
         fetchGame();

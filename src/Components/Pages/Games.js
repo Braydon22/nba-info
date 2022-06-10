@@ -8,8 +8,8 @@ function Games() {
     const { games, gameLoading, setCurrentGamesPage, currentGamesPage, totalPages } = useGlobalContext()
 
     const handleLoadMore = () => {
-        if (currentGamesPage !== totalPages) {
-            setCurrentGamesPage(prevPg => prevPg += 1)
+        if (currentGamesPage !== 0) {
+            setCurrentGamesPage(prevPg => prevPg -= 1)
         }
     }
     const gameElem = games.map(game => {
@@ -27,7 +27,7 @@ function Games() {
             {gameLoading
                 ? <div className="div-center" style={{ margin: "40px" }}><h1>Loading ...</h1></div>
                 : <div className="div-center" style={{ margin: "40px" }}>
-                    <button className='medium-btn btn' onClick={handleLoadMore}> {currentGamesPage !== totalPages ? "Load More" : "No More Games To Load"}
+                    <button className='medium-btn btn' onClick={handleLoadMore}> {currentGamesPage !== 0 ? "Load More" : "No More Games To Load"}
                     </button>
                 </div>
             }
