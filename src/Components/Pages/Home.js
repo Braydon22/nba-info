@@ -4,6 +4,7 @@ import { useGlobalContext } from "../../Context";
 import Navbar from "../Navbar";
 import backgroundImg from "../../Image/background.png";
 import BriefGameInfo from "../BriefGameInfo";
+import Loading from "../Loading";
 
 function Home() {
   const { todaysGame, todaysGameLoading } = useGlobalContext();
@@ -11,6 +12,10 @@ function Home() {
   const gameInfoElem = todaysGame.map((game) => {
     return <BriefGameInfo key={game.id} {...game} />;
   });
+
+  if (todaysGameLoading) {
+    return <Loading />;
+  }
 
   return (
     <div className="home-container">
@@ -22,14 +27,7 @@ function Home() {
           <h1>Recent / Upcoming NBA Games</h1>
         )}
       </div>
-      {todaysGameLoading ? (
-        <div className="loading">
-          {" "}
-          <h1>Loading ... </h1>
-        </div>
-      ) : (
-        <div className="game-info-grid">{gameInfoElem}</div>
-      )}
+      <div className="game-info-grid">{gameInfoElem}</div>
       <img
         className="home-background"
         src={backgroundImg}

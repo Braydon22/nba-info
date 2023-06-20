@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Error from "./Error";
 import { useGlobalContext } from "../../Context";
 import BriefGameInfo from "../BriefGameInfo";
+import Loading from "../Loading";
 
 function SingleTeam(props) {
   const { teamId } = useParams();
@@ -50,12 +51,7 @@ function SingleTeam(props) {
   });
 
   if (loading) {
-    return (
-      <div className="page-header">
-        {" "}
-        <h1>Loading ...</h1>{" "}
-      </div>
-    );
+    return <Loading />;
   }
 
   return (
